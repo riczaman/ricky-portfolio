@@ -17,7 +17,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">
               About Me
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-800 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
               I'm a passionate full-stack developer with expertise in building scalable web applications 
               and implementing robust DevSecOps practices. I love turning complex problems into elegant, 
               user-friendly solutions while ensuring security and performance at every step.
@@ -39,7 +39,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">
               Let's Connect
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-gray-800 dark:text-gray-300 leading-relaxed mb-8">
               I'm always open to discussing new opportunities and interesting projects.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -53,7 +53,7 @@ export default function Home() {
                 href="https://linkedin.com/in/your-profile"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 border-2 border-indigo-500 rounded-xl font-semibold hover:bg-indigo-500/10 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-105 text-indigo-600 dark:text-indigo-400"
+                className="px-8 py-4 border-2 border-indigo-500 rounded-xl font-semibold hover:bg-indigo-500/10 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-105 text-indigo-700 dark:text-indigo-400"
               >
                 LinkedIn
               </a>

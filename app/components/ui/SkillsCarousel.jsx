@@ -45,7 +45,7 @@ export default function SkillsCarousel() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
             Skills & Technologies
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-800 dark:text-gray-400 max-w-2xl mx-auto">
             Tools and technologies I work with
           </p>
         </motion.div>
@@ -68,7 +68,7 @@ export default function SkillsCarousel() {
                 <div className={`text-4xl mb-3 ${skill.color}`}>
                   {skill.icon}
                 </div>
-                <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                <span className="text-sm font-semibold text-gray-800 dark:text-gray-300">
                   {skill.name}
                 </span>
               </motion.div>

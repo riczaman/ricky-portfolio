@@ -23,10 +23,10 @@ export function ThemeProvider({ children }) {
       // Apply theme to document
       if (isDark) {
         document.documentElement.classList.add('dark');
-        document.body.className = 'dark-theme';
+        document.body.className = 'dark-theme text-white';
       } else {
         document.documentElement.classList.remove('dark');
-        document.body.className = 'light-theme';
+        document.body.className = 'light-theme text-gray-900';
       }
     }
   }, [isDark]);

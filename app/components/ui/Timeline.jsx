@@ -1,6 +1,6 @@
 'use client';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Calendar, MapPin, Award } from 'lucide-react';
 
 const timelineData = [
@@ -12,7 +12,8 @@ const timelineData = [
     period: "2023 - Present",
     description: "Leading development of scalable web applications using React, Node.js, and AWS. Implemented microservices architecture serving 100K+ users.",
     achievements: ["Reduced load times by 40%", "Led team of 5 developers", "Implemented CI/CD pipelines"],
-    icon: <Award className="w-5 h-5" />
+    icon: <Award className="w-5 h-5" />,
+    companyLogo: "/company-logos/tech-innovations.png" // Add your company logo here
   },
   {
     id: 2,
@@ -22,7 +23,8 @@ const timelineData = [
     period: "2021 - 2023",
     description: "Automated deployment processes and managed cloud infrastructure. Built monitoring systems and improved system reliability.",
     achievements: ["99.9% uptime achievement", "Reduced deployment time by 60%", "Cost optimization saved $50K annually"],
-    icon: <Award className="w-5 h-5" />
+    icon: <Award className="w-5 h-5" />,
+    companyLogo: "/company-logos/cloudscale.png" // Add your company logo here
   },
   {
     id: 3,
@@ -32,7 +34,8 @@ const timelineData = [
     period: "2020 - 2021",
     description: "Developed MVP for multiple startups using modern web technologies. Collaborated with designers and product managers.",
     achievements: ["Launched 3 successful products", "Built responsive designs", "Integrated payment systems"],
-    icon: <Award className="w-5 h-5" />
+    icon: <Award className="w-5 h-5" />,
+    companyLogo: "/company-logos/startuphub.png" // Add your company logo here
   },
   {
     id: 4,
@@ -42,13 +45,15 @@ const timelineData = [
     period: "2016 - 2020",
     description: "Bachelor's degree in Computer Science with focus on software engineering and data structures.",
     achievements: ["Dean's List 3 semesters", "Led programming club", "Graduated Magna Cum Laude"],
-    icon: <Award className="w-5 h-5" />
+    icon: <Award className="w-5 h-5" />,
+    companyLogo: "/company-logos/university-of-toronto.png" // Add your university logo here
   }
 ];
 
 function TimelineItem({ item, index }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [imageError, setImageError] = useState(false);
   
   return (
     <motion.div
@@ -68,7 +73,7 @@ function TimelineItem({ item, index }) {
         >
           <div className={`flex items-center gap-2 mb-2 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
             <Calendar className="w-4 h-4 text-indigo-500" />
-            <span className="text-sm text-gray-600 dark:text-gray-400">{item.period}</span>
+            <span className="text-sm text-gray-700 dark:text-gray-400">{item.period}</span>
           </div>
           
           <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
@@ -76,12 +81,12 @@ function TimelineItem({ item, index }) {
           </h3>
           
           <div className={`flex items-center gap-2 mb-3 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
-            <span className="text-indigo-600 dark:text-indigo-400 font-semibold">{item.company}</span>
-            <MapPin className="w-4 h-4 text-gray-500" />
-            <span className="text-gray-500 text-sm">{item.location}</span>
+            <span className="text-indigo-700 dark:text-indigo-400 font-semibold">{item.company}</span>
+            <MapPin className="w-4 h-4 text-gray-600 dark:text-gray-500" />
+            <span className="text-gray-600 dark:text-gray-500 text-sm">{item.location}</span>
           </div>
           
-          <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+          <p className="text-gray-800 dark:text-gray-300 mb-4 leading-relaxed">
             {item.description}
           </p>
           
@@ -92,7 +97,7 @@ function TimelineItem({ item, index }) {
                 initial={{ opacity: 0, x: index % 2 === 0 ? 20 : -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.6 + idx * 0.1 }}
-                className={`text-sm text-green-600 dark:text-green-400 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}
+                className={`text-sm text-green-700 dark:text-green-400 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}
               >
                 ✓ {achievement}
               </motion.div>
@@ -101,15 +106,26 @@ function TimelineItem({ item, index }) {
         </motion.div>
       </div>
       
-      {/* Timeline Line & Icon */}
+      {/* Timeline Line & Icon/Logo */}
       <div className="w-2/12 flex flex-col items-center">
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           animate={isInView ? { scale: 1, rotate: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg z-10"
+          className="w-12 h-12 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-lg z-10 border-2 border-indigo-500"
         >
-          {item.icon}
+          {item.companyLogo && !imageError ? (
+            <img
+              src={item.companyLogo}
+              alt={`${item.company} logo`}
+              className="w-8 h-8 object-contain rounded"
+              onError={() => setImageError(true)}
+            />
+          ) : (
+            <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded flex items-center justify-center text-white">
+              {item.icon}
+            </div>
+          )}
         </motion.div>
         {index < timelineData.length - 1 && (
           <motion.div
@@ -144,7 +160,7 @@ export default function Timeline() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
             My Journey
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-800 dark:text-gray-400 max-w-2xl mx-auto">
             A timeline of my professional experience and achievements
           </p>
         </motion.div>

@@ -41,9 +41,14 @@ export default function Header() {
       transition={{ duration: 0.8 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg' 
-          : 'bg-transparent'
+          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-2xl border-b border-gray-200/20 dark:border-gray-700/20' 
+          : 'bg-white/10 dark:bg-gray-900/10 backdrop-blur-md shadow-lg'
       }`}
+      style={{
+        boxShadow: isScrolled 
+          ? '0 10px 40px -10px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05)' 
+          : '0 8px 30px -8px rgba(0, 0, 0, 0.1)'
+      }}
     >
       <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -66,7 +71,7 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 font-medium relative group"
+                className="text-gray-800 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 font-medium relative group"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {item.name}
@@ -86,9 +91,9 @@ export default function Header() {
               aria-label="Toggle theme"
             >
               {isDark ? (
-                <Sun className="w-5 h-5 text-yellow-500" />
+                <Sun className="w-5 h-5 text-yellow-600" />
               ) : (
-                <Moon className="w-5 h-5 text-gray-700" />
+                <Moon className="w-5 h-5 text-gray-800" />
               )}
             </motion.button>
 
@@ -101,9 +106,9 @@ export default function Header() {
               className="md:hidden p-2 rounded-full bg-gray-200/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300/20 dark:border-gray-700/20"
             >
               {isMobileMenuOpen ? (
-                <X className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                <X className="w-5 h-5 text-gray-800 dark:text-gray-300" />
               ) : (
-                <Menu className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                <Menu className="w-5 h-5 text-gray-800 dark:text-gray-300" />
               )}
             </motion.button>
           </div>
@@ -124,7 +129,7 @@ export default function Header() {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-300"
+                className="block w-full text-left px-4 py-2 text-gray-800 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-300"
               >
                 {item.name}
               </button>

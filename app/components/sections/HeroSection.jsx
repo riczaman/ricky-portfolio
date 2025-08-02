@@ -15,25 +15,26 @@ export default function HeroSection() {
   // Enhanced typewriter effect like Aaron James
   useEffect(() => {
     let timeout;
-    let charIndex = 0;
     const currentWord = words[currentWordIndex];
     
-    if (charIndex < currentWord.length) {
-      timeout = setTimeout(() => {
-        setDisplayText(currentWord.slice(0, charIndex + 1));
-        charIndex++;
-      }, 100);
-    } else {
-      // Wait before starting next word
-      timeout = setTimeout(() => {
-        setCurrentWordIndex((prev) => (prev + 1) % words.length);
-        setDisplayText('');
-        charIndex = 0;
-      }, 2000);
-    }
+    const typeWriter = () => {
+      if (displayText.length < currentWord.length) {
+        setDisplayText(currentWord.slice(0, displayText.length + 1));
+      } else {
+        // Wait before starting next word
+        setTimeout(() => {
+          setDisplayText('');
+          setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        }, 2000);
+        return;
+      }
+      
+      timeout = setTimeout(typeWriter, 100);
+    };
     
+    timeout = setTimeout(typeWriter, 100);
     return () => clearTimeout(timeout);
-  }, [displayText, currentWordIndex]);
+  }, [displayText, currentWordIndex, words]);
 
   // Cursor blinking effect
   useEffect(() => {
@@ -105,9 +106,9 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mb-8"
           >
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
-              Passionate about creating <span className="text-indigo-600 dark:text-indigo-400 font-semibold">scalable solutions</span> and 
-              implementing <span className="text-purple-600 dark:text-purple-400 font-semibold">secure DevOps practices</span> that drive innovation.
+            <p className="text-xl md:text-2xl text-gray-800 dark:text-gray-300 leading-relaxed max-w-2xl">
+              Passionate about creating <span className="text-indigo-700 dark:text-indigo-400 font-semibold">scalable solutions</span> and 
+              implementing <span className="text-purple-700 dark:text-purple-400 font-semibold">secure DevOps practices</span> that drive innovation.
             </p>
           </motion.div>
           
@@ -126,7 +127,7 @@ export default function HeroSection() {
             <a
               href="/resume.pdf"
               download
-              className="px-8 py-4 border-2 border-indigo-500 rounded-xl font-semibold hover:bg-indigo-500/10 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 flex items-center gap-2 justify-center text-indigo-600 dark:text-indigo-400 hover:scale-105"
+              className="px-8 py-4 border-2 border-indigo-500 rounded-xl font-semibold hover:bg-indigo-500/10 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 flex items-center gap-2 justify-center text-indigo-700 dark:text-indigo-400 hover:scale-105"
             >
               <Download size={20} />
               Download Resume
@@ -194,7 +195,7 @@ export default function HeroSection() {
           onClick={scrollToAbout}
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+          className="text-gray-800 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
         >
           <ChevronDown size={32} />
         </motion.button>

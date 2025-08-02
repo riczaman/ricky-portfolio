@@ -6,47 +6,58 @@ import { Calendar, MapPin, Award } from 'lucide-react';
 const timelineData = [
   {
     id: 1,
-    title: "Senior Full-Stack Developer",
-    company: "Tech Innovations Inc.",
+    title: "Senior DevSecOps Engineer",
+    company: "TD Securities",
     location: "Toronto, ON",
-    period: "2023 - Present",
-    description: "Leading development of scalable web applications using React, Node.js, and AWS. Implemented microservices architecture serving 100K+ users.",
-    achievements: ["Reduced load times by 40%", "Led team of 5 developers", "Implemented CI/CD pipelines"],
+    period: "2024 - Present",
+    description: "Automated deployment of 300+ microservices monthly by creating a CI/CD pipeline using Python, TeamCity, Jenkins, Nexus, Archiva, Azure and XL Release.",
+    achievements: ["Reduced deployment times by 30%", "99.9% uptime achievement", "Implemented new CI/CD pipelines"],
     icon: <Award className="w-5 h-5" />,
-    companyLogo: "/company-logos/tech-innovations.png" // Add your company logo here
+    companyLogo: "/company-logos/tdbig.png" // Add your company logo here
   },
   {
     id: 2,
-    title: "DevOps Engineer",
-    company: "CloudScale Solutions",
-    location: "Remote",
-    period: "2021 - 2023",
-    description: "Automated deployment processes and managed cloud infrastructure. Built monitoring systems and improved system reliability.",
-    achievements: ["99.9% uptime achievement", "Reduced deployment time by 60%", "Cost optimization saved $50K annually"],
+    title: "Full Stack Solutions Engineer",
+    company: "TD Securities",
+    location: "Toronto, ON",
+    period: "2022 - 2022",
+    description: "Designed and implemented end-to-end software solutions across front-end, back-end, and infrastructure layers to solve complex business problems and ensure seamless system integration.",
+    achievements: ["Managed team of 3 Developers", "Led migration to VMC2", "Cost optimization saved 8600 hours annually"],
     icon: <Award className="w-5 h-5" />,
-    companyLogo: "/company-logos/cloudscale.png" // Add your company logo here
+    companyLogo: "/company-logos/tds.jpg" // Add your company logo here
   },
   {
     id: 3,
-    title: "Full-Stack Developer",
-    company: "StartupHub",
+    title: "Associate Software Developer",
+    company: "TD Bank",
     location: "Toronto, ON",
-    period: "2020 - 2021",
-    description: "Developed MVP for multiple startups using modern web technologies. Collaborated with designers and product managers.",
-    achievements: ["Launched 3 successful products", "Built responsive designs", "Integrated payment systems"],
+    period: "2020 - 2022",
+    description: "Developed MVP for multiple teams using modern web technologies. Collaborated with designers and product managers.",
+    achievements: ["Launched 3 successful applications", "Built responsive designs", "Integrated payment systems"],
     icon: <Award className="w-5 h-5" />,
-    companyLogo: "/company-logos/startuphub.png" // Add your company logo here
+    companyLogo: "/company-logos/td.png" // Add your company logo here
   },
   {
     id: 4,
-    title: "Computer Science Degree",
-    company: "University of Toronto",
+    title: "Full Stack Developer",
+    company: "Palomino Systems Inc.",
     location: "Toronto, ON",
-    period: "2016 - 2020",
-    description: "Bachelor's degree in Computer Science with focus on software engineering and data structures.",
-    achievements: ["Dean's List 3 semesters", "Led programming club", "Graduated Magna Cum Laude"],
+    period: "2019 - 2019",
+    description: "Delivered end-to-end full-stack web applications for 5 clients, designing scalable, user-focused solutions and optimizing code for performance and maintainability.",
+    achievements: ["Optimized SEO for 30% more traffic", "UI/UX design", "Code optimization"],
     icon: <Award className="w-5 h-5" />,
-    companyLogo: "/company-logos/university-of-toronto.png" // Add your university logo here
+    companyLogo: "/company-logos/pal.jpeg" // Add your university logo here
+  },
+  {
+    id: 5,
+    title: "Junior Programmer",
+    company: "Ontario Treasury Board Secretariat",
+    location: "Oshawa, ON",
+    period: "2018 - 2019",
+    description: "Led testing for government software, launching an ASP.NET MVC app to track file transmission errors and delivering test strategies, plans, and detailed defect reports.",
+    achievements: ["Led QA testing", "Implemented new release cadence"],
+    icon: <Award className="w-5 h-5" />,
+    companyLogo: "/company-logos/gov.jpeg" // Add your university logo here
   }
 ];
 

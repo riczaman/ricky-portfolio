@@ -551,13 +551,14 @@ body {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 .dark .glass-card {
-    background: rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   }
 .hover-glow{
   transition-property: all;
@@ -990,9 +991,6 @@ body {
 .border-4{
   border-width: 4px;
 }
-.border-b{
-  border-bottom-width: 1px;
-}
 .border-b-2{
   border-bottom-width: 2px;
 }
@@ -1001,9 +999,6 @@ body {
 }
 .border-blue-500\/30{
   border-color: rgb(59 130 246 / 0.3);
-}
-.border-gray-200\/20{
-  border-color: rgb(229 231 235 / 0.2);
 }
 .border-gray-200\/50{
   border-color: rgb(229 231 235 / 0.5);
@@ -1048,13 +1043,9 @@ body {
 .bg-gray-200\/50{
   background-color: rgb(229 231 235 / 0.5);
 }
-.bg-gray-300{
+.bg-gray-400{
   --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity, 1));
-}
-.bg-gray-50{
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity, 1));
 }
 .bg-gray-500{
   --tw-bg-opacity: 1;
@@ -1114,14 +1105,8 @@ body {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
-.bg-white\/10{
-  background-color: rgb(255 255 255 / 0.1);
-}
 .bg-white\/20{
   background-color: rgb(255 255 255 / 0.2);
-}
-.bg-white\/90{
-  background-color: rgb(255 255 255 / 0.9);
 }
 .bg-yellow-500{
   --tw-bg-opacity: 1;
@@ -1447,18 +1432,8 @@ body {
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
-.backdrop-blur-md{
-  --tw-backdrop-blur: blur(12px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
 .backdrop-blur-sm{
   --tw-backdrop-blur: blur(4px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-.backdrop-blur-xl{
-  --tw-backdrop-blur: blur(24px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
@@ -1711,15 +1686,6 @@ body {
   }
   .dark\:bg-gray-800\/50{
     background-color: rgb(31 41 55 / 0.5);
-  }
-  .dark\:bg-gray-900\/10{
-    background-color: rgb(17 24 39 / 0.1);
-  }
-  .dark\:bg-gray-900\/50{
-    background-color: rgb(17 24 39 / 0.5);
-  }
-  .dark\:bg-gray-900\/90{
-    background-color: rgb(17 24 39 / 0.9);
   }
   .dark\:bg-indigo-500\/20{
     background-color: rgb(99 102 241 / 0.2);

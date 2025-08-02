@@ -149,7 +149,7 @@ export default function HeroSection() {
             {/* Profile image container */}
             <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
               <img
-                src="/profile-image.jpg" // Replace with your actual image path
+                src="/home.PNG" // Replace with your actual image path
                 alt="Ricky Zaman"
                 className="w-full h-full object-cover"
                 onError={(e) => {

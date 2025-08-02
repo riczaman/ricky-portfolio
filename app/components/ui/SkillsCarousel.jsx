@@ -34,7 +34,7 @@ export default function SkillsCarousel() {
   const visibleSkills = skills.slice(currentIndex, currentIndex + itemsPerView);
 
   return (
-    <section className="py-20 px-6 bg-gray-50 dark:bg-gray-900/50">
+    <section id="skills" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -63,7 +63,7 @@ export default function SkillsCarousel() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex flex-col items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-w-[120px]"
+                className="flex flex-col items-center p-6 glass-card hover:shadow-xl transition-all duration-300 hover:scale-105 min-w-[120px] hover-glow"
               >
                 <div className={`text-4xl mb-3 ${skill.color}`}>
                   {skill.icon}
@@ -84,7 +84,7 @@ export default function SkillsCarousel() {
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex 
                     ? 'bg-indigo-500 w-8' 
-                    : 'bg-gray-300 dark:bg-gray-600'
+                    : 'bg-gray-400 dark:bg-gray-600'
                 }`}
               />
             ))}

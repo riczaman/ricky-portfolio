@@ -39,16 +39,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-2xl border-b border-gray-200/20 dark:border-gray-700/20' 
-          : 'bg-white/10 dark:bg-gray-900/10 backdrop-blur-md shadow-lg'
-      }`}
-      style={{
-        boxShadow: isScrolled 
-          ? '0 10px 40px -10px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05)' 
-          : '0 8px 30px -8px rgba(0, 0, 0, 0.1)'
-      }}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     >
       <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">

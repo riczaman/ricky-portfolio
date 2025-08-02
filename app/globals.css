@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +9,7 @@
   }
   
   body {
-    @apply bg-black text-white;
+    @apply bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300;
   }
 }
 
@@ -27,10 +28,14 @@
   }
   
   .glass-card {
-    @apply bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl;
+    @apply bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-800 rounded-xl;
   }
   
   .hover-glow {
     @apply hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10;
+  }
+
+  .font-cursive {
+    font-family: 'Dancing Script', cursive;
   }
 }

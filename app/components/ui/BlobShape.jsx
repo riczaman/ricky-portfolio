@@ -7,8 +7,8 @@ export default function BlobShape({ className = '' }) {
       <svg viewBox="0 0 200 200" className="w-full h-full">
         <defs>
           <linearGradient id="blob-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#8B5CF6" />
-            <stop offset="100%" stopColor="#3B82F6" />
+          <stop offset="0%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#6B7280" />
           </linearGradient>
         </defs>
         <motion.path

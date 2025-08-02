@@ -1,73 +1,54 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Download, Moon, Sun } from 'lucide-react';
+import { Download, ChevronDown } from 'lucide-react';
 import FloatingIcon from '../ui/FloatingIcon';
 import BlobShape from '../ui/BlobShape';
-import { useTheme } from '../../lib/ThemeContext';
 
 export default function HeroSection() {
   const [displayText, setDisplayText] = useState('');
-  const [currentColorIndex, setCurrentColorIndex] = useState(0);
-  const { isDark, toggleTheme } = useTheme();
+  const [showCursor, setShowCursor] = useState(true);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
   
-  const fullText = "Hello, I'm Ricky Zaman";
-  const colors = [
-    'from-pink-500 via-red-500 to-yellow-500',
-    'from-green-400 via-blue-500 to-purple-600',
-    'from-purple-400 via-pink-400 to-red-400',
-    'from-yellow-400 via-red-500 to-pink-500',
-    'from-indigo-400 via-purple-400 to-pink-400',
-    'from-cyan-400 via-blue-500 to-purple-600'
-  ];
+  const words = ["Hello, I'm Ricky Zaman", "I'm a Full-Stack Developer", "I Build Scalable Systems", "I Love DevSecOps"];
   
-  // Enhanced typing effect with color changes
+  // Enhanced typewriter effect like Aaron James
   useEffect(() => {
-    let i = 0;
-    const timer = setInterval(() => {
-      if (i < fullText.length) {
-        setDisplayText(fullText.slice(0, i + 1));
-        // Change color every few characters
-        if (i % 4 === 0) {
-          setCurrentColorIndex((prev) => (prev + 1) % colors.length);
-        }
-        i++;
-      } else {
-        clearInterval(timer);
-        // Continue color cycling after typing is done
-        const colorTimer = setInterval(() => {
-          setCurrentColorIndex((prev) => (prev + 1) % colors.length);
-        }, 2000);
-        return () => clearInterval(colorTimer);
-      }
-    }, 120);
-    return () => clearInterval(timer);
+    let timeout;
+    let charIndex = 0;
+    const currentWord = words[currentWordIndex];
+    
+    if (charIndex < currentWord.length) {
+      timeout = setTimeout(() => {
+        setDisplayText(currentWord.slice(0, charIndex + 1));
+        charIndex++;
+      }, 100);
+    } else {
+      // Wait before starting next word
+      timeout = setTimeout(() => {
+        setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        setDisplayText('');
+        charIndex = 0;
+      }, 2000);
+    }
+    
+    return () => clearTimeout(timeout);
+  }, [displayText, currentWordIndex]);
+
+  // Cursor blinking effect
+  useEffect(() => {
+    const cursorTimer = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 500);
+    return () => clearInterval(cursorTimer);
   }, []);
 
-  const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToAbout = () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center">
-      {/* Theme Toggle Button */}
-      <button
-        onClick={toggleTheme}
-        className="fixed top-6 right-6 z-50 p-3 rounded-full bg-gray-800/50 dark:bg-gray-200/10 backdrop-blur-sm border border-gray-600/20 hover:border-indigo-500/50 transition-all duration-300 hover:scale-110"
-        aria-label="Toggle theme"
-      >
-        {isDark ? (
-          <Sun className="w-5 h-5 text-yellow-400" />
-        ) : (
-          <Moon className="w-5 h-5 text-indigo-600" />
-        )}
-      </button>
-
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-indigo-50 dark:from-black dark:via-gray-900 dark:to-indigo-900">
-        <div className="absolute inset-0 bg-gradient-to-t from-white/50 dark:from-black/50 to-transparent"></div>
-      </div>
-      
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20">
       {/* Floating Blob Shapes */}
       <BlobShape className="top-20 left-20 w-64 h-64" />
       <BlobShape className="bottom-20 right-20 w-80 h-80" />
@@ -100,55 +81,124 @@ export default function HeroSection() {
       />
       
       {/* Hero Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+        {/* Text Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-bold mb-6"
+          className="text-left"
         >
-          <span 
-            className={`bg-gradient-to-r ${colors[currentColorIndex]} bg-clip-text text-transparent animate-pulse font-cursive transition-all duration-1000`}
-            style={{ fontFamily: "'Dancing Script', cursive" }}
+          {/* Dynamic Typewriter Text */}
+          <div className="mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <span className="gradient-text font-cursive">
+                {displayText}
+                <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
+              </span>
+            </h1>
+          </div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mb-8"
           >
-            {displayText}
-            <span className="animate-ping text-indigo-500">|</span>
-          </span>
-        </motion.h1>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-8"
-        >
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 glow-border inline-block">
-            Full-Stack Dev · DevSecOps · Builder of Scalable Systems
-          </p>
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
+              Passionate about creating <span className="text-indigo-600 dark:text-indigo-400 font-semibold">scalable solutions</span> and 
+              implementing <span className="text-purple-600 dark:text-purple-400 font-semibold">secure DevOps practices</span> that drive innovation.
+            </p>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="flex flex-col sm:flex-row gap-4"
+          >
+            <button 
+              onClick={scrollToAbout}
+              className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl font-semibold hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-105 text-white"
+            >
+              Explore My Work
+            </button>
+            <a
+              href="/resume.pdf"
+              download
+              className="px-8 py-4 border-2 border-indigo-500 rounded-xl font-semibold hover:bg-indigo-500/10 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 flex items-center gap-2 justify-center text-indigo-600 dark:text-indigo-400 hover:scale-105"
+            >
+              <Download size={20} />
+              Download Resume
+            </a>
+          </motion.div>
         </motion.div>
-        
+
+        {/* Profile Image */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          initial={{ opacity: 0, x: 50, scale: 0.8 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="relative flex justify-center lg:justify-end"
         >
-          <button 
-            onClick={scrollToProjects}
-            className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg font-semibold hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-105 text-white"
-          >
-            View Projects
-          </button>
-          <a
-            href="/resume.pdf"
-            download
-            className="px-8 py-4 border border-indigo-500 rounded-lg font-semibold hover:bg-indigo-500/10 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 flex items-center gap-2 justify-center text-indigo-600 dark:text-indigo-400"
-          >
-            <Download size={20} />
-            Download Resume
-          </a>
+          <div className="relative">
+            {/* Animated border */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full opacity-75 blur-lg animate-pulse"></div>
+            
+            {/* Profile image container */}
+            <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
+              <img
+                src="/profile-image.jpg" // Replace with your actual image path
+                alt="Ricky Zaman"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Fallback gradient if image doesn't load
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              {/* Fallback gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-6xl font-bold" style={{ display: 'none' }}>
+                RZ
+              </div>
+            </div>
+            
+            {/* Floating elements around image */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white text-xl"
+            >
+              ⚡
+            </motion.div>
+            
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              className="absolute -bottom-4 -left-4 w-10 h-10 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white text-lg"
+            >
+              🚀
+            </motion.div>
+          </div>
         </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <motion.button
+          onClick={scrollToAbout}
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+        >
+          <ChevronDown size={32} />
+        </motion.button>
+      </motion.div>
     </section>
   );
 }

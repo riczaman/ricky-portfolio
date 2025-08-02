@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,8 +9,45 @@
     scroll-behavior: smooth;
   }
   
+  /* Light Theme - White to Navy Blue Gradient */
+  .light-theme {
+    background: linear-gradient(135deg, 
+      #ffffff 0%, 
+      #f8fafc 15%, 
+      #e2e8f0 30%, 
+      #cbd5e1 45%, 
+      #94a3b8 60%, 
+      #64748b 75%, 
+      #334155 90%, 
+      #1e293b 100%
+    );
+    background-attachment: fixed;
+    color: #1f2937;
+    min-height: 100vh;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  /* Dark Theme - Navy Blue to Black Gradient */
+  .dark-theme {
+    background: linear-gradient(135deg, 
+      #0f172a 0%, 
+      #1e293b 15%, 
+      #334155 30%, 
+      #475569 45%, 
+      #64748b 60%, 
+      #374151 75%, 
+      #1f2937 90%, 
+      #000000 100%
+    );
+    background-attachment: fixed;
+    color: #f9fafb;
+    min-height: 100vh;
+    transition: all 0.5s ease-in-out;
+  }
+
   body {
-    @apply bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.5s ease-in-out;
   }
 }
 
@@ -28,14 +66,41 @@
   }
   
   .glass-card {
-    @apply bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-800 rounded-xl;
+    @apply backdrop-blur-md border rounded-xl transition-all duration-300;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+  
+  .dark .glass-card {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.1);
   }
   
   .hover-glow {
-    @apply hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10;
+    @apply hover:border-indigo-500/50 hover:shadow-xl transition-all duration-300;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
   }
 
   .font-cursive {
     font-family: 'Dancing Script', cursive;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #6366f1, #8b5cf6);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #4f46e5, #7c3aed);
   }
 }

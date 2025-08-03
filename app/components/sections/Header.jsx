@@ -39,7 +39,11 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg border-b border-gray-200/20 dark:border-gray-700/20' 
+          : 'bg-transparent'
+      }`}
     >
       <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -62,11 +66,11 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-800 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 font-medium relative group"
+                className="text-gray-800 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 font-medium relative group"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-gray-600 group-hover:w-full transition-all duration-300"></span>
               </motion.button>
             ))}
           </div>
@@ -78,7 +82,7 @@ export default function Header() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-gray-200/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300/20 dark:border-gray-700/20 hover:border-indigo-500/50 transition-all duration-300 hover:scale-110"
+              className="p-2 rounded-full bg-gray-200/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300/20 dark:border-gray-700/20 hover:border-blue-500/50 transition-all duration-300 hover:scale-110"
               aria-label="Toggle theme"
             >
               {isDark ? (
@@ -115,12 +119,12 @@ export default function Header() {
           transition={{ duration: 0.3 }}
           className="md:hidden overflow-hidden"
         >
-          <div className="pt-4 pb-2 space-y-2">
+          <div className="pt-4 pb-2 space-y-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md rounded-lg mt-2 border border-gray-200/20 dark:border-gray-700/20">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-4 py-2 text-gray-800 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-300"
+                className="block w-full text-left px-4 py-2 text-gray-800 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-300"
               >
                 {item.name}
               </button>

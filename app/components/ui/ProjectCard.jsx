@@ -28,7 +28,7 @@ export default function ProjectCard({ project, index, controls }) {
       className="glass-card overflow-hidden hover-glow transition-all duration-300 group hover:scale-105"
     >
       {/* Project Image */}
-      <div className="relative h-48 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 overflow-hidden">
+      <div className="relative h-48 bg-gradient-to-br from-blue-500 via-slate-500 to-gray-500 overflow-hidden">
         {!imageError && (project.image || project.fallbackImage) ? (
           <img
             src={imageError ? project.fallbackImage : project.image}
@@ -73,7 +73,7 @@ export default function ProjectCard({ project, index, controls }) {
       {/* Project Content */}
       <div className="p-6">
         <div className="flex justify-between items-start mb-3">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-1">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
             {project.name}
           </h3>
           <div className="flex items-center space-x-3 text-sm text-gray-500 dark:text-gray-400">
@@ -99,7 +99,7 @@ export default function ProjectCard({ project, index, controls }) {
           {project.topics?.slice(0, 4).map((topic) => (
             <span
               key={topic}
-              className="px-3 py-1 bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs rounded-full font-medium hover:bg-indigo-500/20 dark:hover:bg-indigo-500/30 transition-colors"
+              className="px-3 py-1 bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 text-xs rounded-full font-medium hover:bg-blue-500/20 dark:hover:bg-blue-500/30 transition-colors"
             >
               {topic}
             </span>
@@ -151,7 +151,7 @@ function getLanguageColor(language) {
     'C++': 'bg-purple-500',
     Go: 'bg-cyan-500',
     Rust: 'bg-orange-500',
-    PHP: 'bg-indigo-500',
+    PHP: 'bg-blue-500',
     Ruby: 'bg-red-400',
     Swift: 'bg-orange-400',
     Kotlin: 'bg-purple-400',

@@ -44,16 +44,16 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:your.email@example.com"
-                className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl font-semibold hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-105 text-white"
+                href="mailto:ricky.zaman@outlook.com"
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-gray-600 rounded-xl font-semibold hover:from-blue-500 hover:to-gray-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 text-white"
               >
                 Get In Touch
               </a>
               <a
-                href="https://linkedin.com/in/your-profile"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 border-2 border-indigo-500 rounded-xl font-semibold hover:bg-indigo-500/10 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-105 text-indigo-700 dark:text-indigo-400"
+                className="px-8 py-4 border-2 border-blue-500 rounded-xl font-semibold hover:bg-blue-500/10 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 text-blue-700 dark:text-blue-400"
               >
                 LinkedIn
               </a>

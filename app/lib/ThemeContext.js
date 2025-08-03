@@ -5,8 +5,10 @@ const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
   const [isDark, setIsDark] = useState(false); // Default to light theme
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     // Check if we're in the browser
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme');
@@ -17,7 +19,7 @@ export function ThemeProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && mounted) {
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
       
       // Apply theme to document
@@ -29,7 +31,7 @@ export function ThemeProvider({ children }) {
         document.body.className = 'light-theme text-gray-900';
       }
     }
-  }, [isDark]);
+  }, [isDark, mounted]);
 
   const toggleTheme = () => setIsDark(!isDark);
 

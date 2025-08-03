@@ -13,7 +13,7 @@ const timelineData = [
     description: "Automated deployment of 300+ microservices monthly by creating a CI/CD pipeline using Python, TeamCity, Jenkins, Nexus, Archiva, Azure and XL Release.",
     achievements: ["Reduced deployment times by 30%", "99.9% uptime achievement", "Implemented new CI/CD pipelines"],
     icon: <Award className="w-5 h-5" />,
-    companyLogo: "/company-logos/tdbig.png" // Add your company logo here
+    companyLogo: "/company-logos/td.png"
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const timelineData = [
     description: "Designed and implemented end-to-end software solutions across front-end, back-end, and infrastructure layers to solve complex business problems and ensure seamless system integration.",
     achievements: ["Managed team of 3 Developers", "Led migration to VMC2", "Cost optimization saved 8600 hours annually"],
     icon: <Award className="w-5 h-5" />,
-    companyLogo: "/company-logos/tds.jpg" // Add your company logo here
+    companyLogo: "/company-logos/td.png"
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const timelineData = [
     description: "Developed MVP for multiple teams using modern web technologies. Collaborated with designers and product managers.",
     achievements: ["Launched 3 successful applications", "Built responsive designs", "Integrated payment systems"],
     icon: <Award className="w-5 h-5" />,
-    companyLogo: "/company-logos/td.png" // Add your company logo here
+    companyLogo: "/company-logos/td.png"
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const timelineData = [
     description: "Delivered end-to-end full-stack web applications for 5 clients, designing scalable, user-focused solutions and optimizing code for performance and maintainability.",
     achievements: ["Optimized SEO for 30% more traffic", "UI/UX design", "Code optimization"],
     icon: <Award className="w-5 h-5" />,
-    companyLogo: "/company-logos/pal.jpeg" // Add your university logo here
+    companyLogo: "/company-logos/pal.jpeg"
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ const timelineData = [
     description: "Led testing for government software, launching an ASP.NET MVC app to track file transmission errors and delivering test strategies, plans, and detailed defect reports.",
     achievements: ["Led QA testing", "Implemented new release cadence"],
     icon: <Award className="w-5 h-5" />,
-    companyLogo: "/company-logos/gov.jpeg" // Add your university logo here
+    companyLogo: "/company-logos/gov.jpeg"
   }
 ];
 
@@ -83,7 +83,7 @@ function TimelineItem({ item, index }) {
           className="glass-card p-6 hover-glow transition-all duration-300"
         >
           <div className={`flex items-center gap-2 mb-2 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
-            <Calendar className="w-4 h-4 text-indigo-500" />
+            <Calendar className="w-4 h-4 text-blue-500" />
             <span className="text-sm text-gray-700 dark:text-gray-400">{item.period}</span>
           </div>
           
@@ -92,7 +92,7 @@ function TimelineItem({ item, index }) {
           </h3>
           
           <div className={`flex items-center gap-2 mb-3 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
-            <span className="text-indigo-700 dark:text-indigo-400 font-semibold">{item.company}</span>
+            <span className="text-blue-700 dark:text-blue-400 font-semibold">{item.company}</span>
             <MapPin className="w-4 h-4 text-gray-600 dark:text-gray-500" />
             <span className="text-gray-600 dark:text-gray-500 text-sm">{item.location}</span>
           </div>
@@ -123,17 +123,17 @@ function TimelineItem({ item, index }) {
           initial={{ scale: 0, rotate: -180 }}
           animate={isInView ? { scale: 1, rotate: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="w-12 h-12 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-lg z-10 border-2 border-indigo-500"
+          className="w-16 h-16 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-lg z-10 border-2 border-blue-500 overflow-hidden"
         >
           {item.companyLogo && !imageError ? (
             <img
               src={item.companyLogo}
               alt={`${item.company} logo`}
-              className="w-8 h-8 object-contain rounded"
+              className="w-full h-full object-cover object-center"
               onError={() => setImageError(true)}
             />
           ) : (
-            <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded flex items-center justify-center text-white">
+            <div className="w-full h-full bg-gradient-to-r from-blue-500 to-gray-600 rounded-full flex items-center justify-center text-white">
               {item.icon}
             </div>
           )}
@@ -143,7 +143,7 @@ function TimelineItem({ item, index }) {
             initial={{ height: 0 }}
             animate={isInView ? { height: 120 } : {}}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="w-1 bg-gradient-to-b from-indigo-500 to-purple-600 mt-4"
+            className="w-1 bg-gradient-to-b from-blue-500 to-gray-600 mt-4"
           />
         )}
       </div>

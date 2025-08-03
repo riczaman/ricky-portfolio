@@ -58,13 +58,13 @@ export default function HeroSection() {
       {/* Floating Icons */}
       <FloatingIcon 
         delay={0} 
-        className="top-20 left-1/4 text-indigo-400"
+        className="top-20 left-1/4 text-blue-400"
         iconName="code"
         size={40}
       />
       <FloatingIcon 
         delay={1} 
-        className="top-32 right-1/4 text-purple-400"
+        className="top-32 right-1/4 text-gray-400"
         iconName="terminal" 
         size={35}
       />
@@ -76,7 +76,7 @@ export default function HeroSection() {
       />
       <FloatingIcon 
         delay={1.5} 
-        className="bottom-20 right-1/3 text-indigo-300"
+        className="bottom-20 right-1/3 text-blue-300"
         iconName="cloud" 
         size={38}
       />
@@ -107,8 +107,8 @@ export default function HeroSection() {
             className="mb-8"
           >
             <p className="text-xl md:text-2xl text-gray-800 dark:text-gray-300 leading-relaxed max-w-2xl">
-              Passionate about creating <span className="text-indigo-700 dark:text-indigo-400 font-semibold">scalable solutions</span> and 
-              implementing <span className="text-purple-700 dark:text-purple-400 font-semibold">secure DevOps practices</span> that drive innovation.
+              Passionate about creating <span className="text-blue-700 dark:text-blue-400 font-semibold">scalable solutions</span> and 
+              implementing <span className="text-gray-700 dark:text-gray-400 font-semibold">secure DevOps practices</span> that drive innovation.
             </p>
           </motion.div>
           
@@ -120,14 +120,14 @@ export default function HeroSection() {
           >
             <button 
               onClick={scrollToAbout}
-              className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl font-semibold hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-105 text-white"
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-gray-600 rounded-xl font-semibold hover:from-blue-500 hover:to-gray-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 text-white"
             >
               Explore My Work
             </button>
             <a
               href="/resume.pdf"
               download
-              className="px-8 py-4 border-2 border-indigo-500 rounded-xl font-semibold hover:bg-indigo-500/10 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 flex items-center gap-2 justify-center text-indigo-700 dark:text-indigo-400 hover:scale-105"
+              className="px-8 py-4 border-2 border-blue-500 rounded-xl font-semibold hover:bg-blue-500/10 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 flex items-center gap-2 justify-center text-blue-700 dark:text-blue-400 hover:scale-105"
             >
               <Download size={20} />
               Download Resume
@@ -144,12 +144,12 @@ export default function HeroSection() {
         >
           <div className="relative">
             {/* Animated border */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full opacity-75 blur-lg animate-pulse"></div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-gray-500 to-slate-500 rounded-full opacity-75 blur-lg animate-pulse"></div>
             
             {/* Profile image container */}
             <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
               <img
-                src="/home.PNG" // Replace with your actual image path
+                src="/home.PNG"
                 alt="Ricky Zaman"
                 className="w-full h-full object-cover"
                 onError={(e) => {
@@ -159,27 +159,10 @@ export default function HeroSection() {
                 }}
               />
               {/* Fallback gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-6xl font-bold" style={{ display: 'none' }}>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-gray-500 to-slate-500 flex items-center justify-center text-white text-6xl font-bold" style={{ display: 'none' }}>
                 RZ
               </div>
             </div>
-            
-            {/* Floating elements around image */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white text-xl"
-            >
-              ⚡
-            </motion.div>
-            
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute -bottom-4 -left-4 w-10 h-10 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white text-lg"
-            >
-              🚀
-            </motion.div>
           </div>
         </motion.div>
       </div>
@@ -195,7 +178,7 @@ export default function HeroSection() {
           onClick={scrollToAbout}
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="text-gray-800 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+          className="text-gray-800 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
         >
           <ChevronDown size={32} />
         </motion.button>

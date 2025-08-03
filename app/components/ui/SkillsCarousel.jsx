@@ -3,21 +3,81 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const skills = [
-  { name: 'React', icon: '⚛️', color: 'text-blue-400' },
-  { name: 'Node.js', icon: '🟢', color: 'text-green-400' },
-  { name: 'Python', icon: '🐍', color: 'text-yellow-400' },
-  { name: 'Docker', icon: '🐳', color: 'text-blue-500' },
-  { name: 'Kubernetes', icon: '⚙️', color: 'text-purple-400' },
-  { name: 'AWS', icon: '☁️', color: 'text-orange-400' },
-  { name: 'MongoDB', icon: '🍃', color: 'text-green-500' },
-  { name: 'PostgreSQL', icon: '🐘', color: 'text-blue-600' },
-  { name: 'TypeScript', icon: '📘', color: 'text-blue-400' },
-  { name: 'Next.js', icon: '▲', color: 'text-gray-800 dark:text-white' },
-  { name: 'GraphQL', icon: '📊', color: 'text-pink-400' },
-  { name: 'Redis', icon: '🔴', color: 'text-red-500' },
-  { name: 'Jenkins', icon: '🏗️', color: 'text-blue-500' },
-  { name: 'Terraform', icon: '🏢', color: 'text-purple-500' },
-  { name: 'Git', icon: '📋', color: 'text-orange-500' },
+  { 
+    name: 'React', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
+    color: 'hover:shadow-blue-400/50'
+  },
+  { 
+    name: 'Node.js', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
+    color: 'hover:shadow-green-400/50'
+  },
+  { 
+    name: 'Python', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
+    color: 'hover:shadow-yellow-400/50'
+  },
+  { 
+    name: 'Docker', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
+    color: 'hover:shadow-blue-500/50'
+  },
+  { 
+    name: 'Kubernetes', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg',
+    color: 'hover:shadow-indigo-400/50'
+  },
+  { 
+    name: 'AWS', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+    color: 'hover:shadow-orange-400/50'
+  },
+  { 
+    name: 'MongoDB', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg',
+    color: 'hover:shadow-green-500/50'
+  },
+  { 
+    name: 'PostgreSQL', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
+    color: 'hover:shadow-blue-600/50'
+  },
+  { 
+    name: 'TypeScript', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+    color: 'hover:shadow-blue-400/50'
+  },
+  { 
+    name: 'Next.js', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
+    color: 'hover:shadow-gray-400/50'
+  },
+  { 
+    name: 'GraphQL', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg',
+    color: 'hover:shadow-pink-400/50'
+  },
+  { 
+    name: 'Redis', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg',
+    color: 'hover:shadow-red-500/50'
+  },
+  { 
+    name: 'Jenkins', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg',
+    color: 'hover:shadow-blue-500/50'
+  },
+  { 
+    name: 'Terraform', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg',
+    color: 'hover:shadow-indigo-500/50'
+  },
+  { 
+    name: 'Git', 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',
+    color: 'hover:shadow-orange-500/50'
+  },
 ];
 
 export default function SkillsCarousel() {
@@ -63,12 +123,27 @@ export default function SkillsCarousel() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex flex-col items-center p-6 glass-card hover:shadow-xl transition-all duration-300 hover:scale-105 min-w-[120px] hover-glow"
+                className={`flex flex-col items-center p-8 glass-card transition-all duration-300 hover:scale-105 min-w-[140px] group hover:shadow-xl ${skill.color}`}
               >
-                <div className={`text-4xl mb-3 ${skill.color}`}>
-                  {skill.icon}
+                <div className="w-16 h-16 mb-4 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      // Fallback to a simple colored circle if image fails
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div 
+                    className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-xl"
+                    style={{ display: 'none' }}
+                  >
+                    {skill.name.charAt(0)}
+                  </div>
                 </div>
-                <span className="text-sm font-semibold text-gray-800 dark:text-gray-300">
+                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 text-center">
                   {skill.name}
                 </span>
               </motion.div>
@@ -81,10 +156,10 @@ export default function SkillsCarousel() {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex 
                     ? 'bg-indigo-500 w-8' 
-                    : 'bg-gray-400 dark:bg-gray-600'
+                    : 'bg-gray-400 dark:bg-gray-600 w-2 hover:bg-indigo-300'
                 }`}
               />
             ))}

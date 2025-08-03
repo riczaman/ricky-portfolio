@@ -15,63 +15,234 @@ const skillCategories = [
     title: 'Frontend Development',
     icon: Code,
     skills: [
-      { name: 'React/Next.js', level: 95, icon: '⚛️' },
-      { name: 'TypeScript', level: 90, icon: '🔷' },
-      { name: 'Tailwind CSS', level: 88, icon: '🎨' },
-      { name: 'Vue.js', level: 85, icon: '💚' }
+      { 
+        name: 'React/Next.js', 
+        level: 95, 
+        // Option 1: Use CDN images
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+        // Option 2: Use local images (put in public/icons/ folder)
+        // imageUrl: '/icons/react.svg',
+        fallbackIcon: '⚛️',
+        color: '#61DAFB' 
+      },
+      { 
+        name: 'TypeScript', 
+        level: 90, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+        fallbackIcon: 'TS',
+        color: '#3178C6' 
+      },
+      { 
+        name: 'Tailwind CSS', 
+        level: 88, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg',
+        fallbackIcon: '🎨',
+        color: '#06B6D4' 
+      },
+      { 
+        name: 'Vue.js', 
+        level: 85, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+        fallbackIcon: 'V',
+        color: '#4FC08D' 
+      }
     ]
   },
   {
     title: 'Backend Development',
     icon: Server,
     skills: [
-      { name: 'Node.js', level: 92, icon: '🟢' },
-      { name: 'Python', level: 88, icon: '🐍' },
-      { name: 'PHP/Laravel', level: 85, icon: '🔴' },
-      { name: 'Go', level: 80, icon: '🔵' }
+      { 
+        name: 'Node.js', 
+        level: 92, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+        fallbackIcon: '⬢',
+        color: '#339933' 
+      },
+      { 
+        name: 'Python', 
+        level: 88, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+        fallbackIcon: '🐍',
+        color: '#3776AB' 
+      },
+      { 
+        name: 'PHP/Laravel', 
+        level: 85, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg',
+        fallbackIcon: '🔴',
+        color: '#FF2D20' 
+      },
+      { 
+        name: 'Go', 
+        level: 80, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
+        fallbackIcon: 'Go',
+        color: '#00ADD8' 
+      }
     ]
   },
   {
     title: 'Database & Storage',
     icon: Database,
     skills: [
-      { name: 'PostgreSQL', level: 90, icon: '🐘' },
-      { name: 'MongoDB', level: 85, icon: '🍃' },
-      { name: 'Redis', level: 88, icon: '⚡' },
-      { name: 'MySQL', level: 85, icon: '🗄️' }
+      { 
+        name: 'PostgreSQL', 
+        level: 90, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+        fallbackIcon: '🐘',
+        color: '#336791' 
+      },
+      { 
+        name: 'MongoDB', 
+        level: 85, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+        fallbackIcon: '🍃',
+        color: '#47A248' 
+      },
+      { 
+        name: 'Redis', 
+        level: 88, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
+        fallbackIcon: '⚡',
+        color: '#DC382D' 
+      },
+      { 
+        name: 'MySQL', 
+        level: 85, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+        fallbackIcon: '🗄️',
+        color: '#4479A1' 
+      }
     ]
   },
   {
     title: 'DevOps & Cloud',
     icon: Cloud,
     skills: [
-      { name: 'AWS', level: 92, icon: '☁️' },
-      { name: 'Docker', level: 90, icon: '🐳' },
-      { name: 'Kubernetes', level: 85, icon: '⚙️' },
-      { name: 'Terraform', level: 82, icon: '🏗️' }
+      { 
+        name: 'AWS', 
+        level: 92, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg',
+        fallbackIcon: '☁️',
+        color: '#FF9900' 
+      },
+      { 
+        name: 'Docker', 
+        level: 90, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+        fallbackIcon: '🐳',
+        color: '#2496ED' 
+      },
+      { 
+        name: 'Kubernetes', 
+        level: 85, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg',
+        fallbackIcon: '⚙️',
+        color: '#326CE5' 
+      },
+      { 
+        name: 'Terraform', 
+        level: 82, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg',
+        fallbackIcon: '🏗️',
+        color: '#623CE4' 
+      }
     ]
   },
   {
     title: 'Security & Tools',
     icon: Shield,
     skills: [
-      { name: 'CI/CD', level: 90, icon: '🔄' },
-      { name: 'Security Scanning', level: 88, icon: '🔒' },
-      { name: 'Git/GitHub', level: 95, icon: '📚' },
-      { name: 'Linux', level: 85, icon: '🐧' }
+      { 
+        name: 'Jenkins', 
+        level: 90, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg',
+        fallbackIcon: '🔄',
+        color: '#D33833' 
+      },
+      { 
+        name: 'GitLab', 
+        level: 88, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg',
+        fallbackIcon: '🔒',
+        color: '#FC6D26' 
+      },
+      { 
+        name: 'Git/GitHub', 
+        level: 95, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
+        fallbackIcon: '📚',
+        color: '#181717' 
+      },
+      { 
+        name: 'Linux', 
+        level: 85, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
+        fallbackIcon: '🐧',
+        color: '#FCC624' 
+      }
     ]
   },
   {
     title: 'Tools & Others',
     icon: Settings,
     skills: [
-      { name: 'VS Code', level: 95, icon: '💻' },
-      { name: 'Figma', level: 80, icon: '🎯' },
-      { name: 'Postman', level: 90, icon: '📮' },
-      { name: 'Jira', level: 85, icon: '📋' }
+      { 
+        name: 'VS Code', 
+        level: 95, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
+        fallbackIcon: '💻',
+        color: '#007ACC' 
+      },
+      { 
+        name: 'Figma', 
+        level: 80, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
+        fallbackIcon: '🎯',
+        color: '#F24E1E' 
+      },
+      { 
+        name: 'Nginx', 
+        level: 90, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg',
+        fallbackIcon: '📮',
+        color: '#009639' 
+      },
+      { 
+        name: 'Jira', 
+        level: 85, 
+        imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg',
+        fallbackIcon: '📋',
+        color: '#0052CC' 
+      }
     ]
   }
 ];
+
+// Skill icon component with image fallback
+function SkillIcon({ skill }) {
+  return (
+    <div className="w-8 h-8 rounded-md flex items-center justify-center shadow-lg overflow-hidden bg-white">
+      <img
+        src={skill.imageUrl}
+        alt={`${skill.name} icon`}
+        className="w-6 h-6 object-contain"
+        onError={(e) => {
+          // Fallback to colored div with text/emoji if image fails to load
+          e.target.style.display = 'none';
+          e.target.nextSibling.style.display = 'flex';
+        }}
+      />
+      <div 
+        className="w-full h-full rounded-md items-center justify-center text-white font-bold text-sm"
+        style={{ backgroundColor: skill.color, display: 'none' }}
+      >
+        {skill.fallbackIcon}
+      </div>
+    </div>
+  );
+}
 
 export default function SkillsSection() {
   const ref = useRef(null);
@@ -119,8 +290,8 @@ export default function SkillsSection() {
                     transition={{ duration: 0.4, delay: (categoryIndex * 0.1) + (skillIndex * 0.1) }}
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-lg">{skill.icon}</span>
+                      <div className="flex items-center gap-3">
+                        <SkillIcon skill={skill} />
                         <span className="text-gray-300 font-medium">{skill.name}</span>
                       </div>
                       <span className="text-blue-400 font-bold">{skill.level}%</span>
